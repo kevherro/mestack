@@ -1,0 +1,9 @@
+{
+  "name": "mestack",
+  "displayName": "mestack",
+  "version": "0.2.0",
+  "description": "Rigor-first agent workflows for Amp and Grok Build. Entry point: /mestack.",
+  "license": "MIT",
+  "skills": "./skills/",
+  "agents": "./agents/"
+}
