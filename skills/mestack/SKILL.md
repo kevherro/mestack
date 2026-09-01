@@ -23,8 +23,8 @@ spawning anything.
 3. Name each principle that changes a decision, and the choice it
    changed. A citation with no decision is a miss; read the leaf skill.
 
-If no playbook fits, design numbered steps that each end in a check,
-then run them. Do not invent a second dispatcher.
+If no playbook fits, run the **figure-it-out** skill. Do not invent
+a second dispatcher.
 
 ## Playbooks
 
@@ -58,6 +58,34 @@ Read the leaf in full when you apply it.
   same instruction twice. Put it in a check, not more prose.
 - **One home** (`principle-one-home`). A fact already lives somewhere.
   Point at it. Do not copy it.
+- **Boundary discipline** (`principle-boundary-discipline`). Wiring
+  CLI, config, network, or adapters. Validate at the edge.
+- **Build the lever** (`principle-build-the-lever`). Non-trivial
+  work. The artifact is a rerunnable tool.
+- **Exhaust the design space** (`principle-exhaust-the-design-space`).
+  No precedent. Compare two or three real alternatives.
+- **Experience first** (`principle-experience-first`). Product or
+  API tradeoff. Consumer result over a cheaper implementation.
+- **Guard the context window** (`principle-guard-the-context-window`).
+  Large reads or fan-out. Parent keeps pointers, not dumps.
+- **Make operations idempotent** (`principle-make-operations-idempotent`).
+  Commands, startup, loops. Retries converge.
+- **Migrate then delete** (`principle-migrate-callers-then-delete-legacy-apis`).
+  Replacing an internal API. One wave, no dual path.
+- **Minimize reader load** (`principle-minimize-reader-load`). Hard
+  to trace. Cut layers and hidden state.
+- **Outcome-oriented execution** (`principle-outcome-oriented-execution`).
+  Planned rewrite. Converge on the target, not throwaway middles.
+- **Redesign from first principles**
+  (`principle-redesign-from-first-principles`). New requirement.
+  Integrate as if it had always been there.
+- **Separate before serializing**
+  (`principle-separate-before-serializing-shared-state`). Concurrent
+  writers. Split ownership before adding a lock.
+- **Sequence verifiable units** (`principle-sequence-verifiable-units`).
+  Sweeps, migrations, commit order. Each unit ends in a check.
+- **Type system discipline** (`principle-type-system-discipline`).
+  Types and signatures. Illegal states must not compile.
 
 ## Routing
 
@@ -69,6 +97,11 @@ Read the leaf in full when you apply it.
 - Feature map or verify skill drifted: **maintain-verification-skill**.
 - Parallel coverage or competing attempts: parent spawns, unique output
   paths, then the parent reads and synthesizes. See harness.md.
+- Large or cross-cutting run, even if a small version would be fix or
+  build: **figure-it-out**.
+- Adversarial review of a change: **interrogate**.
+- Catch-up on recent work: **recall**. Teach-me: **teach**. Explicit
+  TDD: **tdd**.
 - Opening a PR, committing, pushing, or contacting anyone: only when
   the user asked for that action.
 
@@ -78,7 +111,7 @@ Proceed on reversible work. Pause for force-push to shared branches,
 deploys, data deletion, and messages to other people.
 
 "Don't stop", "going to bed", "run until done": the leave-running
-playbook. Keep a decision log.
+playbook. Log via **show-me-your-work**.
 
 Push back when the work does not earn its place. Agreement is not the
 default.

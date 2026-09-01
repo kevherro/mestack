@@ -23,6 +23,14 @@ yourself.
 - Model sheet: `~/.agents/mestack-models.md`. Optionally mirrored at
   `~/.grok/rules/mestack-models.md` so it always loads.
 
+## Sessions
+
+On-disk log: `$GROK_HOME/sessions/<encoded-cwd>/<session-id>/`
+(`GROK_HOME` defaults to `~/.grok`). `updates.jsonl` is the
+conversation. `summary.json` is the index. List with
+`grok sessions list`. Search with `grok sessions search`. Stay inside
+the encoded cwd for this workspace unless the user named another.
+
 ## Do not use
 
 Cursor `Task`, Amp orb APIs, or nested `spawn_subagent` from a child.

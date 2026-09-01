@@ -13,6 +13,7 @@ build, no tests beyond `scripts/check-skills.sh`, no dependencies.
 | `skills/principle-*/SKILL.md` | One rule per directory. |
 | `skills/help` | Catalog of current mestack skills. |
 | `skills/how`, `prove`, `setup-mestack` | Situational skills the dispatcher calls. |
+| other `skills/*` | User-invocable procedures. `/help` lists them. Dispatcher names the ones it routes to. |
 | `skills/create-verification-skill/` | Generator for a project-local `verify-<app>` skill. Owns location, generated-skill contract, and feature-map shape. |
 | `skills/maintain-verification-skill/` | Upkeep loop for that project skill. Points at create's references. |
 | `docs/why.md` | Design argument (parent-owned fan-out, verify-* path, rejected alternatives). Not a second copy of skill rules. |

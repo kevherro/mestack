@@ -69,8 +69,7 @@ using
 
 ## 5. Confirm
 
-Tell them `/mestack`, `/how`, `/prove`, `/create-verification-skill`,
-`/maintain-verification-skill`, `/setup-mestack`, and `/help` should
-appear in the slash menu after a reload or new session. Remind them
-there is no multi-model runner yet; reviewer lists that name foreign
-slugs will dropout.
+Tell them `/help` lists the pack, and those names should appear in
+the slash menu after a reload or new session. `/interrogate` spawns
+one child per `reviewers` entry. A slug this session cannot run is
+a dropout.

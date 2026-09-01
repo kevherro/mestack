@@ -56,6 +56,17 @@ Put that in user or project `AGENTS.md`, or `~/.grok/rules/`.
 | `/help` | List mestack skills |
 | `/how` | Walk a subsystem, read-only |
 | `/prove` | Exercise the real artifact |
+| `/figure-it-out` | No narrower playbook fits |
+| `/interrogate` | Adversarial review of a change |
+| `/recall` | Catch up on recent work |
+| `/teach` | Explain so a person understands |
+| `/tdd` | Failing check before production code |
+| `/bro` | Restate the last message plainly |
+| `/unslop` | Cut AI tells from prose |
+| `/no-comments` | Strip narrative comments |
+| `/reflect` | Mine this session into skill edits |
+| `/show-me-your-work` | Decision log for long runs |
+| `/make-bot-ui` | Local page that wakes agent work |
 | `/create-verification-skill` | Repo has an app and no `verify-*` yet |
 | `/maintain-verification-skill` | That skill or its map drifted |
 | `/setup-mestack` | Install check and model sheet |
@@ -74,6 +85,7 @@ feature before handoff. Details: [docs/why.md](docs/why.md).
 skills/mestack/                      dispatcher, playbooks, adapters
 skills/principle-*/                  one rule each; slash-hidden
 skills/how prove setup-mestack help
+skills/<name>/                       situational; /help lists them
 skills/create-verification-skill/    owns verify-* contract
 skills/maintain-verification-skill/
 agents/mestack-agent.md              Grok child; no nested spawn
@@ -84,5 +96,7 @@ Harness tool names live only in `skills/mestack/references/`.
 
 ## Status
 
-v0.2. No arena, multi-model interrogate, or Graphite autopilot.
-Competing designs: parent spawns isolated writers and reads them.
+v0.2. No arena or Graphite autopilot. `/interrogate` runs the
+`reviewers` list on this parent; an empty list means the parent
+reviews. Competing designs: parent spawns isolated writers and
+reads them.

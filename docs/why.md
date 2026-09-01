@@ -118,8 +118,9 @@ Its skill bodies name Cursor `Task`, sticky mode, cloud agents, and
 mechanical substitute table is a second product to sync. mestack
 keeps the problem (throughput without a checkable finish condition)
 and writes procedures that name Amp and Grok primitives in one
-adapter layer. The cost is less playbook coverage (no arena,
-interrogate, or Graphite autopilot in v0.2).
+adapter layer. The cost is less playbook coverage (no arena or
+Graphite autopilot in v0.2). `/interrogate` exists; it runs the
+`reviewers` list on this parent, not a vendor mix.
 
 **Let children spawn.** That matches "a fixer with its own
 reviewer." On Grok it does not run. On Amp it still puts the
@@ -145,7 +146,7 @@ token cost against a bare session. The claim is narrower: the
 illegal states above cannot be produced while the skills are
 followed.
 
-v0.2 has no multi-model runner. A `reviewers:` line that names a
+v0.2 `/interrogate` is the panel. A `reviewers:` line that names a
 slug this session cannot run is a dropout, not a silent substitute
 (`references/models.md`). Arena-style bakeoffs are parent-owned
 spawns with unique worktrees, not a named playbook yet.

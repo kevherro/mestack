@@ -17,8 +17,9 @@ reviewers:
 - `inherit-parent` and `auto` mean: omit any child model field.
 - `code` is mechanical implementation.
 - `judgment` is design, prose, and synthesis.
-- `reviewers` is an optional comma-separated list. One read-only child
-  per entry. An empty list means no panel; the parent reviews.
+- `reviewers` is an optional comma-separated list. `/interrogate`
+  spawns one read-only child per entry. An empty list means no panel;
+  the parent reviews.
 
 ## Resolution
 
@@ -29,5 +30,4 @@ reviewers:
 
 Grok Build native slugs are whatever `grok models` lists, commonly
 `grok-4.6`. Amp native slugs are whatever this Amp session lists.
-v0 does not shell out to other vendors. Multi-model panels wait until
-a runner exists.
+v0 does not shell out to other vendors.

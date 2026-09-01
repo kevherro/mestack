@@ -78,12 +78,24 @@ for f in \
   skills/create-verification-skill/references/location.md \
   skills/create-verification-skill/references/generated-skill.md \
   skills/create-verification-skill/references/feature-map.md \
-  skills/maintain-verification-skill/SKILL.md
+  skills/maintain-verification-skill/SKILL.md \
+  skills/figure-it-out/SKILL.md \
+  skills/show-me-your-work/SKILL.md \
+  skills/show-me-your-work/scripts/log.sh \
+  skills/interrogate/references/rubric.md \
+  skills/interrogate/references/reviewer-brief.md \
+  skills/unslop/references/tells.md
 do
   if [[ ! -f "$ROOT/$f" ]]; then
     fail "missing $f"
   fi
 done
+
+while IFS= read -r line; do
+  [[ -n "$line" ]] || continue
+  fail "cursor-only string in skill body: $line"
+done < <(find "$ROOT/skills" -name '*.md' -exec \
+  grep -n -E 'AskQuestion|\.mdc|pstack-models' {} + 2>/dev/null || true)
 
 if [[ "$errors" -gt 0 ]]; then
   printf '%s check(s) failed\n' "$errors" >&2

@@ -9,10 +9,10 @@ The user is stepping away. Drive to a checkable finish condition.
    checks, or a named blocker).
 2. Work in an isolated worktree or Amp orb. Do not leave half-edits
    in the user's dirty tree unless they asked to.
-3. Keep a decision log: append-only TSV at
-   `.mestack/decisions.tsv` in the worktree (`time`, `decision`,
-   `evidence`, `next`). Commit it with the work if the user wants an
-   audit trail; otherwise leave it in the worktree.
+3. Keep a decision log via **show-me-your-work**. Default path
+   `.mestack/decisions.tsv` in the worktree. That skill owns the
+   columns. Commit the trail if the user wants an audit; otherwise
+   leave it in the worktree.
 4. Apply **reversible-without-asking** inside the contract. Still
    pause for the irreversible list in mestack SKILL.md.
 5. Loop: do the next verifiable unit, **prove** it, then the next.

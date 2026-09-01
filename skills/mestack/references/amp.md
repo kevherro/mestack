@@ -28,6 +28,12 @@ Read `~/.agents/mestack-models.md` when present. Amp-native models run
 in-process. A role that names a model this Amp session cannot run is a
 dropout.
 
+## Sessions
+
+Use the thread or transcript this Amp session exposes. If you cannot
+find it, say unknown. Do not guess a Cursor path. Do not read another
+workspace unless the user named it.
+
 ## Do not use
 
 Grok `spawn_subagent` or Cursor `Task`.
