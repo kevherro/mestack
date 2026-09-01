@@ -53,6 +53,7 @@ Put that in user or project `AGENTS.md`, or `~/.grok/rules/`.
 | Command | When |
 | --- | --- |
 | `/mestack` | Non-trivial engineering work |
+| `/help` | List mestack skills |
 | `/how` | Walk a subsystem, read-only |
 | `/prove` | Exercise the real artifact |
 | `/create-verification-skill` | Repo has an app and no `verify-*` yet |
@@ -72,7 +73,7 @@ feature before handoff. Details: [docs/why.md](docs/why.md).
 ```text
 skills/mestack/                      dispatcher, playbooks, adapters
 skills/principle-*/                  one rule each; slash-hidden
-skills/how prove setup-mestack
+skills/how prove setup-mestack help
 skills/create-verification-skill/    owns verify-* contract
 skills/maintain-verification-skill/
 agents/mestack-agent.md              Grok child; no nested spawn

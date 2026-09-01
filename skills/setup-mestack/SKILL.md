@@ -70,7 +70,7 @@ using
 ## 5. Confirm
 
 Tell them `/mestack`, `/how`, `/prove`, `/create-verification-skill`,
-`/maintain-verification-skill`, and `/setup-mestack` should appear in
-the slash menu after a reload or new session. Remind them there is
-no multi-model runner yet; reviewer lists that name foreign slugs
-will dropout.
+`/maintain-verification-skill`, `/setup-mestack`, and `/help` should
+appear in the slash menu after a reload or new session. Remind them
+there is no multi-model runner yet; reviewer lists that name foreign
+slugs will dropout.

@@ -52,6 +52,21 @@ if [[ ! -f "$ROOT/skills/mestack/SKILL.md" ]]; then
   fail "missing entry skill skills/mestack/SKILL.md"
 fi
 
+help_list="$ROOT/skills/help/scripts/list.sh"
+if [[ ! -f "$help_list" ]]; then
+  fail "missing skills/help/scripts/list.sh"
+elif ! listing="$("$help_list")"; then
+  fail "skills/help/scripts/list.sh failed"
+else
+  for skill_dir in "$ROOT"/skills/*/; do
+    name="$(basename "$skill_dir")"
+    if ! printf '%s\n' "$listing" | grep -F -q \
+      -e "\`/${name}\`" -e "\`${name}\`"; then
+      fail "help listing missing $name"
+    fi
+  done
+fi
+
 for pb in investigate fix build reshape leave-running; do
   if [[ ! -f "$ROOT/skills/mestack/playbooks/$pb.md" ]]; then
     fail "missing playbook $pb.md"
