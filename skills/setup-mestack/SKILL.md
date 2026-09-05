@@ -10,17 +10,15 @@ description: >
 
 ## 1. Check the install
 
-Confirm these paths exist and point at this repo's `skills/` tree
-(symlinks are expected):
+Resolve the current session's capabilities through
+[mestack/references/harness.md](../mestack/references/harness.md).
+Locate the loaded `mestack/SKILL.md` and confirm it points at this repo's
+`skills/` tree. Symlinks are expected. A directly loaded file is valid.
 
-- `~/.agents/skills/mestack/SKILL.md`
-- `~/.grok/skills/mestack/SKILL.md` if this user runs Grok Build
-
-If they are missing, tell the user to run `./install.sh` from the
-mestack repo. Do not run `install.sh` unless they ask.
-
-On Grok, also confirm `mestack-agent` is listed as an agent type, or
-that `~/.grok/agents/mestack-agent.md` exists.
+If discovery is missing, use the installation options in the repo's
+README. Configure a supported skill search path, link the skill tree,
+or load the entry file explicitly. Do not assume every harness scans
+the same directories. Do not run `install.sh` unless the user asks.
 
 ## 2. Models
 
@@ -37,16 +35,11 @@ Write `~/.agents/mestack-models.md` in the shape from
 [mestack/references/models.md](../mestack/references/models.md).
 Overwrite the whole file so reruns stay idempotent.
 
-On Grok, if `~/.grok/rules/` exists, also write an identical copy to
-`~/.grok/rules/mestack-models.md` so the sheet loads as a rule. Do
-not create a Grok rules directory the user does not already use
-unless they ask.
-
 ## 3. Optional default routing
 
 If they want mestack on every non-trivial task, show this block and
-ask where to put it (user `AGENTS.md`, project `AGENTS.md`, or
-`~/.grok/rules/mestack.md`). Do not write it without a yes:
+ask where to put it in a rules file the current harness actually loads.
+Do not write it without a yes:
 
 ```text
 Non-trivial engineering work (bug, feature, refactor, investigation):
@@ -69,7 +62,7 @@ using
 
 ## 5. Confirm
 
-Tell them `/help` lists the pack, and those names should appear in
-the slash menu after a reload or new session. `/interrogate` spawns
+Tell them `/help` lists the pack. Slash-menu discovery depends on
+the harness; skills can also be loaded by path. `/interrogate` spawns
 one child per `reviewers` entry. A slug this session cannot run is
 a dropout.

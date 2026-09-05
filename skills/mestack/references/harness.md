@@ -1,21 +1,45 @@
 # Harness
 
-Detect the parent once at task start. Read exactly one of
-[grok.md](grok.md) or [amp.md](amp.md). Do not mention the other
-harness in child prompts.
+Resolve capabilities once per task from the current session's tool
+instructions. A harness name is not a prerequisite. Read an optional
+adapter only when the session identifies itself as [Amp](amp.md) or
+[Grok Build](grok.md). Current tool instructions take precedence over
+adapter examples. Environment variables alone do not identify a harness.
 
-## Detect
+## Capabilities
 
-- **Grok Build** if the tool list includes `spawn_subagent`, or
-  `GROK_HOME` is set, or the session is clearly Grok CLI/TUI.
-- **Amp** if the session is Amp (orbs, Amp skills, agent-to-agent
-  threads) and `spawn_subagent` is absent.
+For each capability needed by the chosen playbook, establish whether it
+is available, unavailable, or unknown. Use only documented tools exposed
+in this session; unknown is not permission to guess a tool or command.
 
-If both signals appear, prefer the tool you can actually call.
+- **Read, edit, execute.** Use the available file and command tools. If
+  a required operation is missing, report the blocked step and continue
+  independent work. Do not claim verification without executing it.
+- **Todo list.** Use the session's planning tool, or a Markdown checklist
+  in the conversation when none exists.
+- **Delegation.** Use native child sessions when available and permitted.
+  Otherwise perform ordinary slices serially in the parent and report
+  reduced coverage. If independent reviewers or specific models were
+  requested, report their absence as dropouts; a parent pass does not
+  satisfy that requirement.
+- **Isolation.** Give writers separate worktrees or output directories.
+  If isolation is unavailable, keep writes in the parent, serially.
+- **Models.** Follow [models.md](models.md). Do not infer that model
+  selection exists merely because delegation exists.
+- **Sessions.** Use this session's exposed transcript or documented log
+  location. If unavailable, use visible conversation and live repo state,
+  and name the missing history. Do not guess another harness's paths or
+  read another workspace unless the user named it.
+- **External wake.** For a bot UI, use a documented CLI or API callable
+  from its server. An in-session delegation tool alone is not a server
+  integration. If none is available, report the bot UI as blocked.
+- **Continuation.** Use a documented wake mechanism if available. Without
+  one, work within the active session and report unfinished work at its
+  limit. Do not promise unattended continuation after the session ends.
+
+These fallbacks apply wherever a skill calls for the capability.
 
 ## Shared contract
-
-These rules hold on every parent:
 
 1. The parent session owns every spawn. Children never spawn.
 2. Each writer gets its own worktree or output directory. Shared
@@ -25,13 +49,10 @@ These rules hold on every parent:
 4. Review the child's diff yourself. Do not pass through its summary.
 5. A missing model, failed child, or dropped worker is a named dropout.
    Do not silently substitute another model.
-6. Model overrides live in `~/.agents/mestack-models.md` when present.
-   See [models.md](models.md). Absent file means inherit the parent
-   model.
+6. Model overrides follow [models.md](models.md).
 
 ## Overnight
 
 Finish condition, isolated worktree, decision log, stop rule. The
-leave-running playbook names them. Grok's `/loop` and scheduler, and
-Amp orbs, are how the parent stays alive. They are not a substitute
-for the finish condition.
+leave-running playbook names them. A wake mechanism keeps work active;
+it does not replace the finish condition.

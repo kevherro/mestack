@@ -12,11 +12,8 @@ argument-hint: topic or "recent work"
 Before starting or resuming, rebuild where the work stands. Hand back
 a short brief. Do not start the work in this skill.
 
-Session files live in the harness adapter
-([mestack/references/grok.md](../mestack/references/grok.md),
-[mestack/references/amp.md](../mestack/references/amp.md)). Do not
-invent a Cursor transcript path. Do not read another workspace unless
-the user named it.
+Resolve session access and missing-history fallbacks through
+[mestack/references/harness.md](../mestack/references/harness.md).
 
 ## Steps
 

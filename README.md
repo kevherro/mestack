@@ -1,7 +1,9 @@
 # mestack
 
-Skill pack for [Amp](https://ampcode.com) and
-[Grok Build](https://grok.x.ai). One tree, two parents.
+Harness-agnostic engineering skills. Load the same Markdown procedures
+in an agent that can read instructions and use tools. Optional adapters
+cover Amp and Grok Build; other harnesses use the capability contract in
+[references/harness.md](skills/mestack/references/harness.md).
 
 ```text
 /mestack <goal, and how you will know it is done>
@@ -12,6 +14,16 @@ decision, and keeps subagent fan-out in the parent. Why that shape:
 [docs/why.md](docs/why.md).
 
 ## Install
+
+Point your harness's skill search path at this repo's `skills/`, or
+symlink its skill directories into a location your harness discovers.
+Without skill discovery, ask the agent to read
+`skills/mestack/SKILL.md` by absolute path and follow its linked files.
+Slash commands depend on the harness. Delegation, model selection,
+transcript access, and unattended continuation are optional capabilities;
+the capability contract defines fallbacks and blocked cases.
+
+The existing convenience installer targets the Amp/Grok directories:
 
 ```bash
 ./install.sh
@@ -46,7 +58,7 @@ read and follow the mestack skill before acting. Casual questions stay
 ordinary chat. The user can opt out for a turn by saying so.
 ```
 
-Put that in user or project `AGENTS.md`, or `~/.grok/rules/`.
+Put that in a user or project instructions file your harness loads.
 
 ## Commands
 

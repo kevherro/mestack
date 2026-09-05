@@ -28,6 +28,7 @@ reviewers:
 3. A slug this session cannot run is a dropout for that lane. Do not
    substitute.
 
-Grok Build native slugs are whatever `grok models` lists, commonly
-`grok-4.6`. Amp native slugs are whatever this Amp session lists.
-v0 does not shell out to other vendors.
+Use only model identifiers documented as selectable in this session.
+If selection is unavailable, inherit the parent for default work and
+report explicit overrides as dropouts. Do not launch an external
+vendor CLI to satisfy an unavailable override.

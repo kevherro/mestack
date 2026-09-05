@@ -28,8 +28,8 @@ A slug this session cannot run is a dropout. Do not substitute.
 3. Spawn. Parent launches one read-only child per remaining reviewer
    in one turn, per
    [mestack/references/harness.md](../mestack/references/harness.md).
-   `explore`. Isolation `none`. Unique is not required; they must not
-   write. Same brief for every child: intent, scope, and
+   Read-only reviewers may share a checkout; they must not write.
+   Same brief for every child: intent, scope, and
    [references/rubric.md](references/rubric.md). Fill
    [references/reviewer-brief.md](references/reviewer-brief.md).
 4. Parent reads the diff again. Child summaries are untrusted.

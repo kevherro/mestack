@@ -7,8 +7,8 @@ user-invocable: false
 # Parent owns fan-out
 
 The top-level session launches every child. A child never launches
-another child. Grok Build enforces depth one; Amp threads stay
-coherent the same way.
+another child. Keep task ownership and synthesis in the session
+that holds the user’s goal, even when nested delegation is supported.
 
 Give each writer a unique worktree or output directory. Shared
 mutable paths across siblings are a bug.

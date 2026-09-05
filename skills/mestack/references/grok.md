@@ -20,8 +20,7 @@ yourself.
 - Overnight wake: Grok `/loop` and the scheduler. Pair with the
   leave-running playbook.
 - Project rules: `AGENTS.md` and `~/.grok/rules/*.md`.
-- Model sheet: `~/.agents/mestack-models.md`. Optionally mirrored at
-  `~/.grok/rules/mestack-models.md` so it always loads.
+- Model sheet: follow [models.md](models.md).
 
 ## Sessions
 
@@ -34,3 +33,9 @@ the encoded cwd for this workspace unless the user named another.
 ## Do not use
 
 Cursor `Task`, Amp orb APIs, or nested `spawn_subagent` from a child.
+
+## External wake
+
+For a local bot server, check the installed CLI help before using
+`grok -p` with a prompt file, `--cwd`, and `--output-format json`.
+Only use flags supported by that installation.
