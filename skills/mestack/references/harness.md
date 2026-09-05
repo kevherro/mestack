@@ -15,6 +15,11 @@ in this session; unknown is not permission to guess a tool or command.
 - **Read, edit, execute.** Use the available file and command tools. If
   a required operation is missing, report the blocked step and continue
   independent work. Do not claim verification without executing it.
+- **Skills and resources.** Resolve another skill by name through the
+  harness's current discovery. Read its resources relative to that
+  skill's reported directory, not a guessed sibling path. Managed copies
+  may have versioned directory names. Invoke bundled shell scripts with
+  `bash`; distribution may not preserve executable modes.
 - **Todo list.** Use the session's planning tool, or a Markdown checklist
   in the conversation when none exists.
 - **Delegation.** Use native child sessions when available and permitted.

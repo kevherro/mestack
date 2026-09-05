@@ -39,8 +39,22 @@ Grok, as a plugin instead of (or besides) the links:
 grok plugin install /Users/kevin/src/mestack --trust
 ```
 
-Amp: the `~/.agents/skills` links, or add `~/src/mestack/skills` to
-its skill path.
+Amp on this machine: the `~/.agents/skills` links, or add
+`~/src/mestack/skills` to its skill path.
+
+For Amp orbs and other machines, ask Amp:
+
+```text
+Publish this mestack skill pack to my Amp personal skills repository.
+```
+
+Copy all `skills/*` directories to that repository's top level, not
+just the dispatcher: it calls the other skills and their resources.
+Run `./scripts/check-skills.sh` before publishing; it also checks a
+versioned, non-executable hosted layout. Amp asks before pushing.
+New threads load the published skills automatically; reload skills
+in existing threads. Local skills with the same names take precedence.
+See [Amp's skills documentation](https://ampcode.com/docs/customize/skills).
 
 ## Setup
 

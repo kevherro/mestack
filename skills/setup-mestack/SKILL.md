@@ -10,10 +10,11 @@ description: >
 
 ## 1. Check the install
 
-Resolve the current session's capabilities through
-[mestack/references/harness.md](../mestack/references/harness.md).
-Locate the loaded `mestack/SKILL.md` and confirm it points at this repo's
-`skills/` tree. Symlinks are expected. A directly loaded file is valid.
+Resolve the current session's capabilities through the discovered
+**mestack** skill's `references/harness.md`. Confirm the dispatcher
+can read its bundled playbooks and references. A source checkout,
+symlink, directly loaded file, or managed copy is valid; it need not
+point at this repo's `skills/` tree.
 
 If discovery is missing, use the installation options in the repo's
 README. Configure a supported skill search path, link the skill tree,
@@ -24,7 +25,7 @@ the same directories. Do not run `install.sh` unless the user asks.
 
 Read `~/.agents/mestack-models.md` if it exists. Otherwise start from
 the default shape in
-[mestack/references/models.md](../mestack/references/models.md).
+the **mestack** skill's `references/models.md`.
 
 Show the current mapping (`code`, `judgment`, `reviewers`). Ask
 whether to keep inherit-parent for everything or set specific slugs
@@ -32,7 +33,7 @@ this session can actually run. Never write a slug you have not seen
 in this session's model list.
 
 Write `~/.agents/mestack-models.md` in the shape from
-[mestack/references/models.md](../mestack/references/models.md).
+the **mestack** skill's `references/models.md`.
 Overwrite the whole file so reruns stay idempotent.
 
 ## 3. Optional default routing
@@ -50,8 +51,8 @@ ordinary chat. The user can opt out for a turn by saying so.
 ## 4. Project verification skill
 
 If this session is inside a git repo, search for a `verify-*` skill
-using
-[create-verification-skill/references/location.md](../create-verification-skill/references/location.md).
+using the discovered **create-verification-skill** skill's
+`references/location.md`.
 
 - Found: name the path. Mention `/maintain-verification-skill` when
   the map may have drifted.

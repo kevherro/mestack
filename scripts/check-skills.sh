@@ -52,12 +52,16 @@ if [[ ! -f "$ROOT/skills/mestack/SKILL.md" ]]; then
   fail "missing entry skill skills/mestack/SKILL.md"
 fi
 
-help_list="$ROOT/skills/help/scripts/list.sh"
+help_list="$ROOT/scripts/list-skills.sh"
 if [[ ! -f "$help_list" ]]; then
-  fail "missing skills/help/scripts/list.sh"
-elif ! listing="$("$help_list")"; then
-  fail "skills/help/scripts/list.sh failed"
+  fail "missing scripts/list-skills.sh"
+elif ! listing="$(bash "$help_list")"; then
+  fail "scripts/list-skills.sh failed"
 else
+  catalog="$ROOT/skills/help/references/catalog.md"
+  if [[ ! -f "$catalog" ]] || ! diff -u <(printf '%s\n' "$listing") "$catalog"; then
+    fail "help catalog stale: bash scripts/list-skills.sh > skills/help/references/catalog.md"
+  fi
   for skill_dir in "$ROOT"/skills/*/; do
     name="$(basename "$skill_dir")"
     if ! printf '%s\n' "$listing" | grep -F -q \
@@ -103,6 +107,10 @@ while IFS= read -r line; do
 done < <(find "$ROOT/skills" -name '*.md' \
   ! -path "$ROOT/skills/mestack/references/*" -exec \
   grep -n -E 'spawn_subagent|get_command_or_subagent_output|run_terminal_command|scheduler_create|ask_user_question|`explore`|grok -p|Amp orb' {} + 2>/dev/null || true)
+
+if ! bash "$ROOT/scripts/check-hosted-skills.sh"; then
+  fail "hosted skill checks failed"
+fi
 
 if [[ "$errors" -gt 0 ]]; then
   printf '%s check(s) failed\n' "$errors" >&2

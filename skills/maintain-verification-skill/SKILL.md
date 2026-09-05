@@ -20,10 +20,9 @@ skill's directory. Never edit product code in this run: a map that
 describes behavior the app no longer does is either doc drift (fix
 the map) or a product regression (report it).
 
-The generated-skill contract and map shape live in
-[create-verification-skill/references/generated-skill.md](../create-verification-skill/references/generated-skill.md)
-and
-[create-verification-skill/references/feature-map.md](../create-verification-skill/references/feature-map.md).
+The generated-skill contract and map shape live in the discovered
+**create-verification-skill** skill's `references/generated-skill.md`
+and `references/feature-map.md`.
 
 ## Outcome
 
@@ -38,15 +37,15 @@ Pick one and say it:
 
 ## Pass
 
-0. **Locate.** Follow
-   [create-verification-skill/references/location.md](../create-verification-skill/references/location.md).
+0. **Locate.** Follow the **create-verification-skill** skill's
+   `references/location.md`.
    None → stop and point at `/create-verification-skill`.
 
 1. **Index.** Read `features/README.md` and glob sibling files. Fix
    missing, extra, duplicate, or dead entries. Lightweight.
 
 2. **Source wave.** Parent spawns one read-only explorer per feature
-   file, per [mestack/references/harness.md](../mestack/references/harness.md).
+   file, per the discovered **mestack** skill's `references/harness.md`.
    Each returns: how the feature works in source, likely drift with
    citations, one live-drive recipe. Children never drive the app and
    never edit. Parent reads the cited code.

@@ -34,10 +34,11 @@ Default path: `.mestack/decisions.tsv` in the worktree. Several
 runs at once: `.mestack/<task-slug>.tsv`. Local by default. Commit
 only when a reviewer needs the trail to trust the result.
 
-Append with `scripts/log.sh`:
+Append with this skill's `scripts/log.sh`, using its discovered
+path. Run from the worktree so relative log paths stay there:
 
 ```text
-scripts/log.sh <logfile> <phase> <decision> <why> <evidence> <result>
+bash <skill-dir>/scripts/log.sh <logfile> <phase> <decision> <why> <evidence> <result>
 ```
 
 It stamps `ts`, writes the header on first use, strips tabs and

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Print a markdown table of mestack skills from sibling SKILL.md files.
+# Generate the help catalog from the source pack's SKILL.md files.
 set -euo pipefail
 
-here="$(cd "$(dirname "$0")" && pwd -P)"
-pack="$(cd "$here/../.." && pwd -P)"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+pack="$ROOT/skills"
 
 parse() {
   awk '

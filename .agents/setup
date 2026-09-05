@@ -32,7 +32,7 @@ ensure_executables() {
   chmod +x \
     "$ROOT/install.sh" \
     "$ROOT/scripts/check-skills.sh" \
-    "$ROOT/skills/help/scripts/list.sh"
+    "$ROOT/scripts/list-skills.sh"
 }
 
 step "check tools" check_tools
