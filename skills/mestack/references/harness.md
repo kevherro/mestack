@@ -36,6 +36,10 @@ in this session; unknown is not permission to guess a tool or command.
 - **Continuation.** Use a documented wake mechanism if available. Without
   one, work within the active session and report unfinished work at its
   limit. Do not promise unattended continuation after the session ends.
+- **Current-session schedule.** Recurring prompt in this conversation,
+  with this transcript and a blocking yes/no. A background child or
+  overnight orb is not this. If unavailable, say so and stop. Do not
+  fake it with a child.
 
 These fallbacks apply wherever a skill calls for the capability.
 

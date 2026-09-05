@@ -79,6 +79,7 @@ Put that in a user or project instructions file your harness loads.
 | `/reflect` | Mine this session into skill edits |
 | `/show-me-your-work` | Decision log for long runs |
 | `/make-bot-ui` | Local page that wakes agent work |
+| `/nudge` | Nudge every N minutes; Yes writes a team update |
 | `/create-verification-skill` | Repo has an app and no `verify-*` yet |
 | `/maintain-verification-skill` | That skill or its map drifted |
 | `/setup-mestack` | Install check and model sheet |

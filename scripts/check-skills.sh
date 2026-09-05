@@ -102,7 +102,7 @@ while IFS= read -r line; do
   fail "harness primitive outside adapter references: $line"
 done < <(find "$ROOT/skills" -name '*.md' \
   ! -path "$ROOT/skills/mestack/references/*" -exec \
-  grep -n -E 'spawn_subagent|get_command_or_subagent_output|run_terminal_command|`explore`|grok -p|Amp orb' {} + 2>/dev/null || true)
+  grep -n -E 'spawn_subagent|get_command_or_subagent_output|run_terminal_command|scheduler_create|ask_user_question|`explore`|grok -p|Amp orb' {} + 2>/dev/null || true)
 
 if [[ "$errors" -gt 0 ]]; then
   printf '%s check(s) failed\n' "$errors" >&2

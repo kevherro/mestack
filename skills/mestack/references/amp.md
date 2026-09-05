@@ -37,3 +37,9 @@ workspace unless the user named it.
 ## Do not use
 
 Grok `spawn_subagent` or Cursor `Task`.
+
+## Current-session schedule
+
+Not the overnight orb. If this Amp session exposes a recurring prompt
+in the current thread with a blocking question, use that. Otherwise
+the capability is unavailable.

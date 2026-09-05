@@ -22,6 +22,20 @@ yourself.
 - Project rules: `AGENTS.md` and `~/.grok/rules/*.md`.
 - Model sheet: follow [models.md](models.md).
 
+## Current-session schedule
+
+Harness capability. Use `scheduler_create` with `foreground: true`.
+Default scheduled tasks and `/loop` run as a background subagent:
+they do not see this transcript, and they cannot ask a blocking
+question (`ask_user_question` is parent-only).
+
+- `interval`: `Ns` / `Nm` / `Nh` / `Nd`. Minimum 60 seconds.
+- `durable`: `false` unless the caller asked to persist.
+- `fire_immediately`: `false` unless the caller asked.
+- Recurring tasks expire after 7 days. At most 50 at once.
+- Replace: `scheduler_list`, then `scheduler_delete` for rows whose
+  prompt matches the caller's tag.
+
 ## Sessions
 
 On-disk log: `$GROK_HOME/sessions/<encoded-cwd>/<session-id>/`
